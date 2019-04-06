@@ -15,6 +15,10 @@ bot = Discordrb::Commands::CommandBot.new(
   ignore_bots: true
 )
 
+class << bot
+  attr_accessor :env_table
+end
+
 def bot.env(id)
   @env_table ||= {}
   @env_table[id] ||= { system: 'DiceBot' }
@@ -27,19 +31,19 @@ def bot.set_env(id, key, val)
   @env_table[id][key] = val
 end
 
-def make_bcdice(system, command)
+def bot.make_bcdice(system, command)
   dicebot = BCDice::DICEBOTS[system]
 
   raise UnsupportedDicebot if dicebot.nil?
 
   raise CommandError if command.nil? || command.empty?
 
-  bcdice = BCDiceMaker.new.newBcDice
-  bcdice.setDiceBot(dicebot)
-  bcdice.setMessage(command)
-  bcdice.setDir('bcdice/extratables', system)
-  bcdice.setCollectRandResult(true)
-  bcdice
+  @bcdice ||= BCDiceMaker.new.newBcDice
+  @bcdice.setDiceBot(dicebot)
+  @bcdice.setMessage(command)
+  @bcdice.setDir('bcdice/extratables', system)
+  @bcdice.setCollectRandResult(true)
+  @bcdice
 end
 
 def bot.diceroll(id, command)
@@ -57,11 +61,13 @@ def bot.diceroll(id, command)
 end
 
 bot.command [:roll, :r, :dice] do |event, dice, system = nil|
+  save = bot.env_table
   bot.set_env(event.channel.id, :system, system) unless system.nil?
 
   result, secret, _dices = bot.diceroll(event.channel.id, dice)
   msg = BCDice::DICEBOTS[bot.env(event.channel.id)[:system]].gameName + result
 
+  bot.env_table = save
   if secret
     event.user.pm msg
     nil
