@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'discordrb'
 require './lib/bcdice_wrap'
 
@@ -13,13 +15,14 @@ bot = Discordrb::Commands::CommandBot.new(
   ignore_bots: true
 )
 
-bot.instance_variable_set(:@env_table, {})
-bot.class.define_method(:env) do |id|
+def bot.env(id)
+  @env_table ||= {}
   @env_table[id] ||= { system: 'DiceBot' }
   @env_table[id]
 end
 
-bot.class.define_method(:set_env) do |id, key, val|
+def bot.set_env(id, key, val)
+  @env_table ||= {}
   @env_table[id] ||= { system: 'DiceBot' }
   @env_table[id][key] = val
 end
@@ -39,7 +42,8 @@ def make_bcdice(system, command)
   bcdice
 end
 
-def diceroll(system, command)
+def bot.diceroll(id, command)
+  system = env(id)[:system]
   bcdice = make_bcdice(system, command)
 
   result, secret = bcdice.dice_command
@@ -52,8 +56,10 @@ def diceroll(system, command)
   [result, secret, dices]
 end
 
-bot.command :roll do |event, *args|
-  result, secret, _dices = diceroll(bot.env(event.channel.id)[:system], args.join(' '))
+bot.command [:roll, :r, :dice] do |event, dice, system = nil|
+  bot.set_env(event.channel.id)[:system] = system unless system.nil?
+
+  result, secret, _dices = bot.diceroll(event.channel.id, dice)
   msg = BCDice::DICEBOTS[bot.env(event.channel.id)[:system]].gameName + result
 
   if secret

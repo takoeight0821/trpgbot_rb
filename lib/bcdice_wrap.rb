@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 $LOAD_PATH.unshift File.join(__dir__, '..', 'BCDice', 'src')
 require 'bcdiceCore'
 require 'diceBot/DiceBot'
