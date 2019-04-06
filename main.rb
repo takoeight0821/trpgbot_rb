@@ -57,7 +57,7 @@ def bot.diceroll(id, command)
 end
 
 bot.command [:roll, :r, :dice] do |event, dice, system = nil|
-  bot.set_env(event.channel.id)[:system] = system unless system.nil?
+  bot.set_env(event.channel.id, :system, system) unless system.nil?
 
   result, secret, _dices = bot.diceroll(event.channel.id, dice)
   msg = BCDice::DICEBOTS[bot.env(event.channel.id)[:system]].gameName + result
