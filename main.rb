@@ -62,17 +62,22 @@ end
 
 bot.command [:roll, :r, :dice] do |event, dice, system = nil|
   save = bot.env_table
-  bot.set_env(event.channel.id, :system, system) unless system.nil?
 
-  result, secret, _dices = bot.diceroll(event.channel.id, dice)
-  msg = BCDice::DICEBOTS[bot.env(event.channel.id)[:system]].gameName + result
+  begin
+    bot.set_env(event.channel.id, :system, system) unless system.nil?
 
-  bot.env_table = save
-  if secret
-    event.user.pm msg
-    nil
-  else
-    msg
+    result, secret, _dices = bot.diceroll(event.channel.id, dice)
+    msg = BCDice::DICEBOTS[bot.env(event.channel.id)[:system]].gameName + result
+
+    bot.env_table = save
+    if secret
+      event.user.pm msg
+      nil
+    else
+      msg
+    end
+  rescue CommandError => e
+    e.to_s
   end
 end
 
