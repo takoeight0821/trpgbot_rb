@@ -162,3 +162,23 @@
 * ワールドオブダークネス -> WorldOfDarkness
 * ヤンキー＆ヨグ＝ソトース -> YankeeYogSothoth
 * 絶対隷奴 -> ZettaiReido
+
+## Botの起動方法
+
+### 必要なもの
+
+* Ruby 2.6.2
+* Bundler
+
+### セットアップ
+
+```sh
+$ git clone https://github.com/takoeight0821/trpgbot_rb
+$ bundle install
+```
+
+### 起動
+
+```sh
+$ BOT_TOKEN=<Discord botのトークン> bundle exec ruby main.rb
+```
