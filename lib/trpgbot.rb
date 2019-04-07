@@ -73,7 +73,7 @@ module Trpgbot
     end
   end
 
-  def main
+  def self.main
     bot = Bot.new(
       token: ENV['BOT_TOKEN'],
       prefix: '!',
