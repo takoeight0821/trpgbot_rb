@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 $LOAD_PATH.unshift File.join(__dir__, '..', 'BCDice', 'src')
-require 'bcdiceCore'
-require 'diceBot/DiceBot'
-require 'diceBot/DiceBotLoader'
+require_relative '../BCDice/src/bcdiceCore'
+require_relative '../BCDice/src/diceBot/DiceBot'
+require_relative '../BCDice/src/diceBot/DiceBotLoader'
 
 class BCDice
   DICEBOTS = (DiceBotLoader.collectDiceBots + [DiceBot.new]).map do |dice_bot|
