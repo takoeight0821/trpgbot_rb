@@ -3,7 +3,6 @@
 ruby '2.6.2'
 
 source "https://rubygems.org"
-gemspec
 
 gem 'discordrb'
 gem 'solargraph', group: :development

@@ -1,1 +1,1 @@
-worker: bundle exec trpgbot
+worker: bundle exec ruby trpgbot.rb

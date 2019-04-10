@@ -1,10 +1,9 @@
-require 'trpgbot/version'
 require 'discordrb'
 
-$LOAD_PATH.unshift File.join(__dir__, '..', 'BCDice', 'src')
-require_relative '../BCDice/src/bcdiceCore'
-require_relative '../BCDice/src/diceBot/DiceBot'
-require_relative '../BCDice/src/diceBot/DiceBotLoader'
+$LOAD_PATH.unshift File.join(__dir__, 'BCDice', 'src')
+require_relative './BCDice/src/bcdiceCore'
+require_relative './BCDice/src/diceBot/DiceBot'
+require_relative './BCDice/src/diceBot/DiceBotLoader'
 
 class BCDice
   DICEBOTS = (DiceBotLoader.collectDiceBots + [DiceBot.new]).map do |dice_bot|
@@ -72,45 +71,43 @@ module Trpgbot
       [result, secret]
     end
   end
-
-  def self.main
-    bot = Bot.new(
-      token: ENV['BOT_TOKEN'],
-      prefix: '!',
-      ignore_bots: true
-    )
-
-    bot.command [:roll, :r, :dice] do |event, dice, system = nil|
-      save = bot.env_table
-
-      begin
-        bot.set_env(event.channel.id, :system, system) unless system.nil?
-
-        result, secret = bot.diceroll(event.channel.id, dice)
-        msg = BCDice::DICEBOTS[bot.env(event.channel.id)[:system]].gameName + result
-
-        bot.env_table = save
-        if secret
-          event.user.pm msg
-        else
-          event << msg
-        end
-      rescue CommandError => e
-        event << e.to_s
-      end
-
-      nil
-    end
-
-    bot.command :set_system do |event, system|
-      bot.set_env(event.channel.id, :system, system)
-      "set system #{system} (#{BCDice::DICEBOTS[system].gameName})"
-    end
-
-    bot.command :show_env do |event|
-      bot.env(event.channel.id).to_s
-    end
-
-    bot.run
-  end
 end
+
+bot = Bot.new(
+  token: ENV['BOT_TOKEN'],
+  prefix: '!',
+  ignore_bots: true
+)
+
+bot.command [:roll, :r, :dice] do |event, dice, system = nil|
+  save = bot.env_table
+
+  begin
+    bot.set_env(event.channel.id, :system, system) unless system.nil?
+
+    result, secret = bot.diceroll(event.channel.id, dice)
+    msg = BCDice::DICEBOTS[bot.env(event.channel.id)[:system]].gameName + result
+
+    bot.env_table = save
+    if secret
+      event.user.pm msg
+    else
+      event << msg
+    end
+  rescue CommandError => e
+    event << e.to_s
+  end
+
+  nil
+end
+
+bot.command :set_system do |event, system|
+  bot.set_env(event.channel.id, :system, system)
+  "set system #{system} (#{BCDice::DICEBOTS[system].gameName})"
+end
+
+bot.command :show_env do |event|
+  bot.env(event.channel.id).to_s
+end
+
+bot.run
