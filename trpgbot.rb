@@ -16,7 +16,7 @@ class BCDice
                   .freeze
 end
 
-module Trpgbot
+module TRPGBot
   class UnsupportedDicebot < StandardError; end
 
   class CommandError < StandardError; end
@@ -73,7 +73,7 @@ module Trpgbot
   end
 end
 
-bot = Bot.new(
+bot = TRPGBot::Bot.new(
   token: ENV['BOT_TOKEN'],
   prefix: '!',
   ignore_bots: true
