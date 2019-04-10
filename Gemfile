@@ -5,9 +5,7 @@ ruby '2.6.2'
 source "https://rubygems.org"
 gemspec
 
-git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
-
-gem "discordrb"
+gem 'discordrb'
 gem 'solargraph', group: :development
 gem 'pry', group: :development
 gem 'pry-doc', group: :development
