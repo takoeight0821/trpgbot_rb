@@ -14,6 +14,8 @@ class BCDice
 
   NAMES = DICEBOTS.map { |game_type, dice_bot| { system: game_type, name: dice_bot.gameName } }
                   .freeze
+
+  attr_reader :counterInfos
 end
 
 module TRPGBot
@@ -25,6 +27,13 @@ module TRPGBot
   class Bot < Discordrb::Commands::CommandBot
     # @return [Hash] bot config for each channels
     attr_accessor :env_table
+    # @return [BCDice]
+    attr_reader :bcdice
+
+    def initialize(*args)
+      super(*args)
+      @bcdice = BCDiceMaker.new.newBcDice
+    end
 
     # @param id [Integer] channel id
     # @return [Hash] bot config for the channel
@@ -43,14 +52,13 @@ module TRPGBot
       @env_table[id][key] = val
     end
 
-    def make_bcdice(system, command)
+    def update_bcdice(system, command)
       dicebot = BCDice::DICEBOTS[system]
 
       raise UnsupportedDicebot if dicebot.nil?
 
       raise CommandError if command.nil? || command.empty?
 
-      @bcdice ||= BCDiceMaker.new.newBcDice
       @bcdice.setDiceBot(dicebot)
       @bcdice.setMessage(command)
       @bcdice.setDir('bcdice/extratables', system)
@@ -60,13 +68,38 @@ module TRPGBot
 
     def diceroll(id, command)
       system = env(id)[:system]
-      bcdice = make_bcdice(system, command)
+      bcdice = update_bcdice(system, command)
 
       result, secret = bcdice.dice_command
 
-      puts "DEBUG: #{[system, command]} #{[result, secret]}"
+      puts "DICEROLL: #{[system, command]} #{[result, secret]}"
 
       raise CommandError if result.nil? || result == '1'
+
+      [result, secret]
+    end
+
+    def show_counter(event)
+      puts "SHOW_COUNTER: #{event.channel.name}"
+      count_holder = CountHolder.new(@bcdice, @bcdice.counterInfos)
+      count_holder.instance_variable_get(:@countInfos).each do | c |
+        event << c.to_s
+      end
+      nil
+    end
+
+    def exec(id, nick, command, mode)
+      raise CommandError if command.nil?
+
+      update_bcdice(env(id)[:system], command)
+
+      count_holder = CountHolder.new(@bcdice, @bcdice.counterInfos)
+      result, secret = count_holder.executeCommand(command, nick, id, mode)
+
+      puts "EXEC: #{[id, nick, command]} #{[result, secret]}"
+
+      raise CommandError if result.nil? || result == '1'
+
 
       [result, secret]
     end
@@ -78,6 +111,8 @@ bot = TRPGBot::Bot.new(
   prefix: '!',
   ignore_bots: true
 )
+
+$isDebug = true
 
 bot.command [:roll, :r, :dice] do |event, dice, system = nil|
   save = bot.env_table
@@ -108,6 +143,22 @@ end
 
 bot.command :show_env do |event|
   bot.env(event.channel.id).to_s
+end
+
+bot.command :exec do |event, nick, command|
+  mode = :sameNick
+  if command.nil?
+    mode = :sameChannel
+    command = nick
+    nick = ''
+  end
+
+  result, _secret = bot.exec(event.channel.id, nick, '#' + command, mode)
+  result
+end
+
+bot.command :show_counter do |event|
+  bot.show_counter(event)
 end
 
 bot.run
