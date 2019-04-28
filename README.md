@@ -1,21 +1,18 @@
 # Trpgbot
 
-
 ## Installation
 
-Add this line to your application's Gemfile:
+githubからダウンロード
 
-```ruby
-gem 'trpgbot'
+```
+$ git clone --recurse-submodules https://github.com/takoeight0821/trpgbot_rb
 ```
 
-And then execute:
+Bundlerで依存ライブラリをインストール
 
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install trpgbot
+```
+$ bundle install
+```
 
 ## Usage
 
@@ -28,6 +25,8 @@ Or install it yourself as:
 Botの起動は以下のコマンド
 
     $ BOT_TOKEN=<Discord botのトークン> bundle exec ruby main.rb
+
+BOT_TOKENは環境変数として設定しても良い。
 
 ## 対応システム名一覧
 
@@ -185,12 +184,6 @@ Botの起動は以下のコマンド
 * ワールドオブダークネス -> WorldOfDarkness
 * ヤンキー＆ヨグ＝ソトース -> YankeeYogSothoth
 * 絶対隷奴 -> ZettaiReido
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## Contributing
 
