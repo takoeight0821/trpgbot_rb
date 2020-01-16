@@ -178,7 +178,7 @@ end
 
 bot = TRPGBot::Bot.new(
   token: ENV['BOT_TOKEN'],
-  prefix: '!',
+  prefix: '$',
   ignore_bots: true
 )
 
