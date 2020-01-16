@@ -23,6 +23,35 @@ module TRPGBot
 
   class CommandError < StandardError; end
 
+  class ToStringClient
+    attr_accessor :output
+    def quit; end
+
+    def sendMessage(_to, message)
+      @output ||= ""
+      @output << message
+      @output << "\r\n"
+    end
+  
+    def sendMessageToOnlySender(_nick_e, message)
+      @output ||= ""
+      @output << message
+      @output << "\r\n"
+    end
+  
+    def sendMessageToChannels(message)
+      @output ||= ""
+      @output << message
+      @output << "\r\n"
+    end
+
+    def getMessage
+      o = @output
+      @output = ""
+      o
+    end
+  end
+
   # TRPG bot on Discord
   class Bot < Discordrb::Commands::CommandBot
     # @return [Hash] bot config for each channels
@@ -35,6 +64,8 @@ module TRPGBot
     def initialize(*args)
       super(*args)
       @bcdice = BCDiceMaker.new.newBcDice
+      @toStr = ToStringClient.new
+      @bcdice.setIrcClient(@toStr)
       @env_table = {}
       @count_info_table = {}
     end
@@ -115,6 +146,21 @@ module TRPGBot
       @bcdice
     end
 
+    def help(id)
+      system = env(id)[:system]
+      dicebot = BCDice::DICEBOTS[system]
+      output = <<"EOS"
+- 加算ロール　　　　　　（xDn）（n面体ダイスをx個）
+- バラバラロール　　　　（xBn）
+- 個数振り足しロール   （xRn[振り足し値]）
+- 上方無限ロール      （xUn[境界値]）
+- シークレットロール   （Sダイスコマンド）（DMで結果が届く）
+- 四則演算（端数切捨て）（C(式)）
+EOS
+      output << dicebot.getHelpMessage
+      output
+    end
+
     def diceroll(id, command)
       system = env(id)[:system]
       bcdice = update_bcdice(system, command)
@@ -161,6 +207,10 @@ end
 bot.command :set_system do |event, system|
   bot.set_env(event.channel.id, :system, system)
   "set system #{system} (#{BCDice::DICEBOTS[system].gameName})"
+end
+
+bot.command :help do |event|
+  bot.help(event.channel.id)
 end
 
 bot.command :show_env do |event|
