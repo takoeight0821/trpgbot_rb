@@ -1,0 +1,196 @@
+BCDiceの対応ゲームとそのIDの一覧
+
+https://github.com/bcdice/BCDice/commit/f1973c7110657e88c1d14e949eab590ad9851b47
+上記時点でのBCDiceから抽出
+
+피아스코 -> Fiasco:Korean
+フィルトウィズ -> FilledWith
+スチームパンカーズ -> SteamPunkers
+ブラッド・クルセイド -> BloodCrusade
+ブラッド・ムーン -> BloodMoon
+カードランカー -> CardRanker
+フタリソウサ -> FutariSousa
+銀剣のステラナイツ -> StellarKnights
+フルメタル・パニック！RPG -> FullMetalPanic
+둘이서 수사(후타리소우사) -> FutariSousa:Korean
+ガラコと破界の塔 -> Garako
+カオスフレア -> ChaosFlare
+ゲヘナ・アナスタシス -> GehennaAn
+Chill -> Chill
+ゲイシャ・ガール・ウィズ・カタナ -> GeishaGirlwithKatana
+Chill 3rd Edition -> Chill3
+コード：レイヤード -> CodeLayerd
+ゴブリンスレイヤーTRPG -> GoblinSlayer
+メタルヘッド -> MetalHead
+コロッサルハンター -> ColossalHunter
+ゆうやけこやけ -> GoldenSkyStories
+ゴリラTRPG -> Gorilla
+グランクレストRPG -> GranCrest
+メタルヘッドエクストリーム -> MetalHeadExtream
+ガンドッグ -> Gundog
+ガンドッグ・リヴァイズド -> GundogRevised
+ガンドッグゼロ -> GundogZero
+ガープス -> GURPS
+カムズ -> Comes
+墜落世界 -> CrashWorld
+ガープスフィルトウィズ -> GurpsFW
+クトゥルフ神話TRPG -> Cthulhu
+ステラーライフTRPG -> SterileLife
+メタリックガーディアンRPG -> MetallicGuardian
+モノトーンミュージアムRPG -> MonotoneMuseum
+ハーンマスター -> HarnMaster
+모노톤 뮤지엄 -> MonotoneMuseum:Korean
+ネクロニカ -> Nechronica
+新クトゥルフ神話TRPG -> Cthulhu7th
+初音ミクTRPG ココロダンジョン -> HatsuneMiku
+네크로니카 -> Nechronica:Korean
+ネバークラウドTRPG -> NeverCloud
+ナイトウィザード The 2nd Edition -> NightWizard
+剣の街の異邦人TRPG -> StrangerOfSwordCity
+比叡山炎上 -> Hieizan
+ストラトシャウト -> StratoShout
+蓬莱学園の冒険!! -> HouraiGakuen
+스트라토 샤우트 -> StratoShout:Korean
+碧空のストレイヴ -> Strave
+ソードワールドRPG -> SwordWorld
+ADVANCED FIGHTING FANTASY 2nd Edition -> AFF2e
+ナイトウィザード The 3rd Edition -> NightWizard3rd
+ナイトメアハンター=ディープ -> NightmareHunterDeep
+ニンジャスレイヤーTRPG -> NinjaSlayer
+エースキラージーン -> AceKillerGene
+ガーデンオーダー -> GardenOrder
+ハンターズ・ムーン -> HuntersMoon
+晃天のイルージオ -> Illusio
+克蘇魯神話第7版 -> Cthulhu7th:ChineseTraditional
+朱の孤塔のエアゲトラム -> Airgetlamh
+無限のファンタジア -> InfiniteFantasia
+インセイン -> Insane
+크툴루의 부름 7판 -> Cthulhu7th:Korean
+クトゥルフテック -> CthulhuTech
+인세인 -> Insane:Korean
+イサー・ウェン＝アー -> IthaWenUa
+NJSLYRBATTLE -> NjslyrBattle
+ジェームズ・ボンド007 -> JamesBond
+詩片のアルセット -> Alsetto
+神我狩 -> Kamigakari
+ソードワールド2.0 -> SwordWorld2.0
+アルシャード -> Alshard
+スタンダードRPGシステム -> SRS
+SRSじゃない世界樹の迷宮TRPG -> NSSQ
+ソードワールド2.5 -> SwordWorld2.5
+카미가카리 -> Kamigakari:Korean
+艦これRPG -> KanColle
+鵺鏡 -> Nuekagami
+片道勇者TRPG -> OneWayHeroics
+セラフィザイン -> TherapieSein
+克蘇魯神話 -> Cthulhu:ChineseTraditional
+東京ゴーストリサーチ -> TokyoGhostResearch
+크툴루 -> Cthulhu:Korean
+ダークブレイズ -> DarkBlaze
+トーキョーN◎VA -> TokyoNova
+特命転攻生 -> TokumeiTenkousei
+トーグ -> Torg
+獸ノ森 -> KemonoNoMori
+ダークデイズドライブ -> DarkDaysDrive
+ダークソウルTRPG -> DarkSouls
+デッドラインヒーローズRPG -> DeadlineHeroes
+キルデスビジネス -> KillDeathBusiness
+オラクルエンジン -> OracleEngine
+アルトレイズ -> AlterRaise
+トーグ1.5版 -> Torg1.5
+アマデウス -> Amadeus
+TORG Eternity -> TorgEternity
+在りて遍くオルガレイン -> OrgaRain
+央華封神RPG 第三版 -> Oukahoushin3rd
+チェレステ色のパラディーゾ -> Paradiso
+Kill Death Business (한국어) -> KillDeathBusiness:Korean
+クラヤミクライン -> KurayamiCrying
+デモンパラサイト -> DemonParasite
+紫縞のリヴラドール -> LiveraDoll
+ログ・ホライズンTRPG -> LogHorizon
+아마데우스 -> Amadeus:Korean
+アニマアニムス -> AnimaAnimus
+パラノイア -> Paranoia
+でたとこサーガ -> DetatokoSaga
+パラノイア リブーテッド -> ParanoiaRebooted
+アリアンロッドRPG -> Arianrhod
+アルスマギカ -> ArsMagica
+パラサイトブラッドRPG -> ParasiteBlood
+トリニティセブンRPG -> TrinitySeven
+Pathfinder -> Pathfinder
+ピーカーブー -> Peekaboo
+데타토코 사가 -> DetatokoSaga:Korean
+ダイス・オブ・ザ・デッド -> DiceOfTheDead
+ファンタズム・アドベンチャー -> PhantasmAdventure
+ペンドラゴン -> Pendragon
+黒絢のアヴァンドナー -> Avandner
+BBNTRPG -> BBN
+로그 호라이즌 -> LogHorizon:Korean
+ダブルクロス2nd,3rd -> DoubleCross
+ロストレコード -> LostRecord
+ロストロイヤル -> LostRoyal
+トンネルズ＆トロールズ -> TunnelsAndTrolls
+壊れた世界のポストマン -> Postman
+パルプ・クトゥルフ -> PulpCthulhu
+バッドライフ -> BadLife
+叛逆レゾンデートル -> Raisondetre
+ロードス島戦記RPG -> RecordOfLodossWar
+DiceBot -> DiceBot
+マギカロギア -> MagicaLogia
+トワイライトガンスモーク -> TwilightGunsmoke
+バルナ・クロニカ -> BarnaKronika
+ウタカゼ -> Utakaze
+Record of Steam -> RecordOfSteam
+더블크로스2nd,3rd -> DoubleCross:Korean
+ドラクルージュ -> Dracurouge
+Vampire: The Masquerade 5th Edition -> VampireTheMasquerade5th
+六門世界RPG セカンドエディション -> RokumonSekai2
+バトルテック -> BattleTech
+ロールマスター -> RoleMaster
+ルーインブレイカーズ -> RuinBreakers
+ルーンクエスト -> RuneQuest
+リューチューバーとちいさな奇跡 -> RyuTuber
+蒼天のヴィラシエル -> Villaciel
+りゅうたま -> Ryutama
+드라크루주 -> Dracurouge:Korean
+ダンジョンズ＆ドラゴンズ -> DungeonsAndDragons
+アースドーン -> EarthDawn
+サンサーラ・バラッド -> SamsaraBallad
+サタスペ -> Satasupe
+迷宮デイズ -> MeikyuDays
+迷宮キングダム -> MeikyuKingdom
+ビーストバインド トリニティ -> BeastBindTrinity
+アースドーン3版 -> EarthDawn3
+スクリームハイスクール -> ScreamHighSchool
+ワープス -> WARPS
+ワースブレイド -> WaresBlade
+セブン＝フォートレス メビウス -> SevenFortressMobius
+シャドウラン -> ShadowRun
+シャドウラン 4th Edition -> ShadowRun4
+ウォーハンマー -> Warhammer
+アースドーン4版 -> EarthDawn4
+シャドウラン 5th Edition -> ShadowRun5
+ビギニングアイドル -> BeginningIdol
+Shared†Fantasia -> SharedFantasia
+真・女神転生TRPG 覚醒篇 -> ShinMegamiTenseiKakuseihen
+エクリプス・フェイズ -> EclipsePhase
+真空学園 -> ShinkuuGakuen
+エルリック！ -> Elric
+エリュシオン -> Elysion
+ウォーハンマーRPG第4版 -> Warhammer4
+ウィッチクエスト -> WitchQuest
+ワールド・オブ・ダークネス -> WorldOfDarkness
+シノビガミ -> ShinobiGami
+ヤンキー＆ヨグ＝ソトース -> YankeeYogSothoth
+비기닝 아이돌 -> BeginningIdol:Korean
+ブレイド・オブ・アルカナ -> BladeOfArcana
+少女展爛会TRPG -> ShoujoTenrankai
+YearZeroEngine -> YearZeroEngine
+エムブリオマシンRPG -> EmbryoMachine
+ブラインド・ミトスRPG -> BlindMythos
+迷宮キングダム 基本ルールブック -> MeikyuKingdomBasic
+歯車の塔の探空士 -> Skynauts
+エンドブレイカー！ -> EndBreaker
+世界樹の迷宮SRS -> EtrianOdysseySRS
+フィアスコ -> Fiasco
+絶対隷奴 -> ZettaiReido
