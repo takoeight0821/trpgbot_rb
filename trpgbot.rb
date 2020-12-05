@@ -18,7 +18,9 @@ module TRPGBot
     end
 
     def update_nickname(event)
-      self.member(event.channel.server, self.profile.id).nickname = "TRPGBot (#{@game_system::NAME})"
+      if self.member(event.channel.server, self.profile.id).nickname != "TRPGBot (#{@game_system::NAME})"
+        self.member(event.channel.server, self.profile.id).nickname = "TRPGBot (#{@game_system::NAME})"
+      end
       nil
     end
 
