@@ -66,7 +66,6 @@ module TRPGBot
       result
     rescue StandardError => e
       puts e
-      puts e.backtrace
     end
   end
 end
@@ -92,10 +91,10 @@ bot.command :help do |event|
 end
 
 bot.message do |event|
-  command = bot.parse_command event.content
-  if command
-    bot.update_nickname event
-    event << (bot.run_command command)
+  bot.update_nickname event
+  result = bot.run_command event.content
+  unless result.empty?
+    event << result
   end
 end
 
