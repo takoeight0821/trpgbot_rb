@@ -61,9 +61,7 @@ module TRPGBot
 
     def run_command(command)
       gs = @game_system.new(command)
-      result = gs.eval().text
-      puts "DEBUG: #{result}"
-      result
+      gs.eval()
     rescue StandardError => e
       puts e
     end
@@ -76,25 +74,20 @@ bot = TRPGBot::Bot.new(
   ignore_bots: true
 )
 
-bot.command :newSystemTest do |event|
-  event.respond 'OK!'
-end
-
 bot.command [:use, :set] do |event, game_name|
   bot.load_game_system event, game_name
   bot.update_nickname event
 end
 
 bot.command :help do |event|
-  bot.update_nickname event
   bot.show_help event
 end
 
 bot.message do |event|
-  bot.update_nickname event
   result = bot.run_command event.content
-  unless result.empty?
-    event << result
+  unless result.nil?
+    bot.update_nickname event
+    event << result.text
   end
 end
 
